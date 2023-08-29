@@ -1,107 +1,84 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Day01-Drum Kit-JS30</title>
-    </head>
 
-    <body>
-        <header>
-            <a href="../index.html">Home - All codes</a>
-            <h1>Drum Kit</h1>
-        </header>
-        <div class="keys">
-            <div data-key="65" class="key">
-                <kbd>
-                    A
-                </kbd>
-                <span class="sound">Clap</span>
-            </div>
-            <div data-key="83" class="key">
-                <kbd>
-                    S
-                </kbd>
-                <span class="sound">Hihat</span>
-            </div>
-            <div data-key="68" class="key">
-                <kbd>
-                    D
-                </kbd>
-                <span class="sound">Kick</span>
-            </div>
-            <div data-key="70" class="key">
-                <kbd>
-                    F
-                </kbd>
-                <span class="sound">OpenHat</span>
-            </div>
-            <div data-key="71" class="key">
-                <kbd>
-                    G
-                </kbd>
-                <span class="sound">Boom</span>
-            </div>
-            <div data-key="72" class="key">
-                <kbd>
-                    H
-                </kbd>
-                <span class="sound">Ride</span>
-            </div>
-            <div data-key="74" class="key">
-                <kbd>
-                    J
-                </kbd>
-                <span class="sound">Snare</span>
-            </div>
-            <div data-key="75" class="key">
-                <kbd>
-                    K
-                </kbd>
-                <span class="sound">Tom 1</span>
-            </div>
-            <div data-key="76" class="key">
-                <kbd>
-                    L
-                </kbd>
-                <span class="sound">Tom 2</span>
-            </div>
-            <audio data-key="65" src="../assets/01-clap-808.wav"></audio>
-            <audio data-key="83" src="../assets/01-hihat-808.wav"></audio>
-            <audio data-key="68" src="../assets/01-kick-808.wav"></audio>
-            <audio data-key="70" src="../assets/01-openhat-acoustic01.wav"></audio>
-            <audio data-key="71" src="../assets/01-kick-big.wav"></audio>
-            <audio data-key="72" src="../assets/01-ride-acoustic02.wav"></audio>
-            <audio data-key="74" src="../assets/01-snare-808.wav"></audio>
-            <audio data-key="75" src="../assets/01-tom-acoustic02.wav"></audio>
-            <audio data-key="76" src="../assets/01-tom-acoustic01.wav"></audio>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Day01-Drum Kit-JS30</title>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">Home - All codes</a>
+        <h1>Drum Kit</h1>
+    </header>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <kbd>
+                A
+            </kbd>
+            <span class="sound">Clap</span>
         </div>
+        <div data-key="83" class="key">
+            <kbd>
+                S
+            </kbd>
+            <span class="sound">Hihat</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>
+                D
+            </kbd>
+            <span class="sound">Kick</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>
+                F
+            </kbd>
+            <span class="sound">OpenHat</span>
+        </div>
+        <div data-key="71" class="key">
+            <kbd>
+                G
+            </kbd>
+            <span class="sound">Boom</span>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>
+                H
+            </kbd>
+            <span class="sound">Ride</span>
+        </div>
+        <div data-key="74" class="key">
+            <kbd>
+                J
+            </kbd>
+            <span class="sound">Snare</span>
+        </div>
+        <div data-key="75" class="key">
+            <kbd>
+                K
+            </kbd>
+            <span class="sound">Tom 1</span>
+        </div>
+        <div data-key="76" class="key">
+            <kbd>
+                L
+            </kbd>
+            <span class="sound">Tom 2</span>
+        </div>
+        <audio data-key="65" src="../assets/01-clap-808.wav"></audio>
+        <audio data-key="83" src="../assets/01-hihat-808.wav"></audio>
+        <audio data-key="68" src="../assets/01-kick-808.wav"></audio>
+        <audio data-key="70" src="../assets/01-openhat-acoustic01.wav"></audio>
+        <audio data-key="71" src="../assets/01-kick-big.wav"></audio>
+        <audio data-key="72" src="../assets/01-ride-acoustic02.wav"></audio>
+        <audio data-key="74" src="../assets/01-snare-808.wav"></audio>
+        <audio data-key="75" src="../assets/01-tom-acoustic02.wav"></audio>
+        <audio data-key="76" src="../assets/01-tom-acoustic01.wav"></audio>
+    </div>
 
-        <script>
-            
-            function playSound(e){
-                const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-                const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-                if(!audio) return
+    <script src="code.js"></script>
+</body>
 
-                audio.currentTime = 0 //rewind to the start
-                audio.play()
-
-                // key.addClass('playing') - JQuery
-                key.classList.add('playing')
-                // key.classList.remove('playing')
-                // key.classList.toggle('playing')
-
-            }
-            function removeTransition(e) {
-                if(e.propertyName !== 'transform') return //skip it if it's not a transform  
-                this.classList.remove('playing')
-            }
-            
-            const keys = document.querySelectorAll('.key')
-            keys.forEach(key => key.addEventListener('transitionend', removeTransition))
-
-            window.addEventListener('keydown', playSound)
-        </script>
-    </body>
 </html>
