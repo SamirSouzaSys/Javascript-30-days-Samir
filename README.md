@@ -10,3 +10,4 @@ Here I intend to add all codes from the [Javascript30](https://javascript30.com/
 - [Drum Sounds](https://99sounds.org/drum-samples/)
 
 2. Day 02 - Clock
+3. Day 03 - Scoped Css Vars and Js
